@@ -45,7 +45,7 @@ if(isset($_SESSION['id'])){
                 <li></li>
             </ul>
 
-            <form action="./database/signupAction.php" method="POST" id="signup">
+            <form action="./database/signupAction.php" method="POST" id="signup" onsubmit="return check()">
                 <h1>SignUp </h1>
                 <?php
                 if (isset($_SESSION['signup-error'])){
@@ -70,6 +70,23 @@ if(isset($_SESSION['id'])){
 
     </div>
 
+                <script>
+                    function check(){
+                    var pass= document.getElementsByName('password')[0];
+                    var cpass= document.getElementsByName('cpassword')[0];
+                    if(pass!==cpass){
+                     document.getElementsByName('cpassword')[0].value="";
+                     document.getElementsByName('cpassword')[0].style.fontFamily ="concert-one";
+                     document.getElementsByName('cpassword')[0].placeholder="confirm password doesnt match";
+                     document.getElementsByName('cpassword')[0].style.border="1px solid red";
+                        
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                    }
+                </script>
 
 </body>
 

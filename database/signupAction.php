@@ -7,13 +7,14 @@ else{
     $username=mysqli_real_escape_string($conn,$_POST['username']);
     $email=mysqli_real_escape_string($conn,$_POST['email']);
     $password=mysqli_real_escape_string($conn,$_POST['password']);
-    $password=mysqli_real_escape_string($conn,$_POST['password']);
+    $cpassword=mysqli_real_escape_string($conn,$_POST['cpassword']);
     
     $checkusername="select * from userdata where username='$username'";
     $checkusernamer=mysqli_query($conn,$checkusername);
     if(mysqli_num_rows($checkusernamer)>0){
         $_SESSION['signup-error']="username already exist";
         header("location:../signup.php");
+        exit();
     }
     
     $checkemail="select * from userdata where email='$email'";
@@ -22,6 +23,7 @@ else{
     if(mysqli_num_rows($checkemailr)>0){
         $_SESSION['signup-error']="email already exist";
         header("location:../signup.php");
+        exit();
     }
 
     $query="insert into userdata(username,email,password,joindate) values('$username','$email','$password','$currentDate')";

@@ -2,25 +2,31 @@
   width: 80%;
   height: max-content;
   margin: 0px auto;
-  padding: 40px 20px;
+  padding: 20px 20px;
   font-family: "noto sans jp";
 }
 
 .upload-title {
   width: max-content;
-  background-color: rgb(0, 108, 209);
+  z-index: 1;
+  font-size:35px;
+  font-family: 'concert one';
+  background-clip: text;
+  background:linear-gradient(to left, red,blue);
+  -webkit-background-clip: text;
+  color: transparent;
   margin: auto;
   padding: 10px 15px;
-  color: white;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 40px;
+  letter-spacing: 6px;
+  margin-bottom: 30px;
 }
 
 .upload form {
+  background-color: transparent;
   position: relative;
   width: 80%;
-  margin: auto;
+  margin: 0px auto;
 }
 
 .upload form input[type="file"] {
@@ -28,12 +34,13 @@
 }
 
 .upload label {
+  filter: drop-shadow(0px 0px 20px rgb(187, 187, 187));
   position: relative;
   display: block;
-  font-size: 300px;
+  font-size: 400px;
   width: max-content;
   margin: auto;
-  color: rgb(233, 233, 233);
+  color: rgb(153, 241, 230);
   transition: all 0.4s;
 }
 

@@ -64,7 +64,7 @@ include "./includes/header.php";
             form.addEventListener("submit", checksubmit)
 
             function checksubmit(e) {
-                document.querySelector(".cancel").style.display="none"
+                // document.querySelector(".cancel").style.display="none"
                 document.getElementById("pbar").style.display = "inline-block"
 
                 var file = document.getElementById("file").files[0];
