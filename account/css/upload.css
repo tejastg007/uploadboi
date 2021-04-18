@@ -1,0 +1,139 @@
+.upload {
+  width: 80%;
+  height: max-content;
+  margin: 0px auto;
+  padding: 40px 20px;
+  font-family: "noto sans jp";
+}
+
+.upload-title {
+  width: max-content;
+  background-color: rgb(0, 108, 209);
+  margin: auto;
+  padding: 10px 15px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.upload form {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.upload form input[type="file"] {
+  display: none;
+}
+
+.upload label {
+  position: relative;
+  display: block;
+  font-size: 300px;
+  width: max-content;
+  margin: auto;
+  color: rgb(233, 233, 233);
+  transition: all 0.4s;
+}
+
+.after-upload {
+  display: none;
+  width: 100%;
+}
+
+.upload form #filenamelabel {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: rgb(228, 228, 228);
+  padding: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.upload .cancel{
+  font-size: 23px;
+  outline: none;
+  color: red;
+  border:none
+}
+
+.upload .cancel:hover{
+  cursor: pointer;
+}
+
+.upload progress {
+  width: 100%;
+  display: none;
+}
+
+.upload form label:hover {
+  cursor: pointer;
+  color: rgb(0, 140, 255);
+}
+
+
+
+.form-options {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.form-options .options {
+  border: none;
+  outline: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1.4px;
+  text-transform: capitalize;
+  margin: 15px 15px 15px 0px;
+  border-radius: 20px;
+}
+
+.form-options .options:hover {
+  cursor: pointer;
+}
+
+.form-options .options:first-child {
+  color: white;
+  background-color: rgb(0, 144, 201);
+}
+
+.form-options .options:last-child {
+  background-color: white;
+  color: rgb(0, 144, 201);
+  border: 1px solid rgb(0, 144, 201);
+}
+
+.optionspanel {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  text-transform: capitalize;
+  padding: 10px 0px;
+  /* display: none; */
+}
+
+.optionspanel input {
+  width: 250px;
+  padding: 10px;
+  letter-spacing: 0.5px;
+  outline: none;
+}
+
+.optionspanel select {
+  outline: none;
+  letter-spacing: 0.5px;
+  padding: 8px;
+  color: rgb(97, 96, 96);
+  font-family: "noto sans jp";
+  text-transform: capitalize;
+}
+
+.optionspanel input::placeholder {
+  font-family: "noto sans jp";
+  text-transform: capitalize;
+}

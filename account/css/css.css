@@ -1,0 +1,15 @@
+@import "index.css";
+@import "menubar.css";
+@import "upload.css";
+@import "uploadresult.css";
+@import "myfiles.css";
+@import "f.css";
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,11 @@
+Options -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^f/([0-9]+)/([a-zA-Z]+) f.php?id=$1&d=$2 [NC,L]
+RewriteRule ^f/([0-9]+) f.php?id=$1 [NC,L]
+RewriteRule ^f/(|) f.php?$1 [NC,L]
+
+
+

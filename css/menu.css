@@ -1,0 +1,51 @@
+.menu {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    background-color: transparent;
+    justify-content: flex-end;
+    align-items: center;
+    text-transform: capitalize;
+    font-family: "Concert One", cursive;
+    letter-spacing: 2px;
+    z-index: 4 !important;
+    /* z-index: 1; */
+  }
+  
+  .logo {
+    flex: 1;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo h1 {
+    font-size: 45px;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 2px 1px red, 4px 1px orange;
+  }
+  .logo h1 a {
+    color: white;
+  }
+  .menuItems {
+    flex: 4;
+    text-align: right;
+    margin-right: 40px;
+    text-transform: uppercase;
+  }
+  
+  .menuItems :nth-child(1),
+  .menuItems :nth-child(2) {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: linear-gradient(to left, #141e30, #243b55);
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  

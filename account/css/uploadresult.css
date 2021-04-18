@@ -1,0 +1,182 @@
+#copymsg {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  background-color: rgb(3, 0, 160);
+  width: max-content;
+  height: max-content;
+  color: white;
+  font-size: 20px;
+  padding: 15px 20px;
+  z-index: 1;
+  display: none;
+}
+
+#copymsg.copymsg {
+  display: block;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 50px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 50px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 50px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 50px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+
+.upload-result {
+  position: relative;
+  width: 80%;
+  height: max-content;
+  margin: 0px auto;
+  padding: 40px;
+  font-family: "noto sans jp";
+}
+
+.upload-result a{
+  display:block;
+  text-transform: capitalize;
+  text-align: center;
+  text-decoration: underline;
+}
+.upload-result-title {
+  text-align: center;
+  width: 100%;
+  font-size: 23px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: rgb(2, 101, 250);
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.upload-result-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.upload-result-container .left,.upload-result-container .right{
+    padding: 10px;
+}
+
+.upload-result-container .left {
+  width: 25%;
+}
+
+.upload-result-container .left *{
+    margin: 10px 0px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: gray;
+}
+
+.upload-result-container .left button{
+    outline: none;
+    border: none;
+    background-color: rgb(0, 140, 255);
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: all 0.4s;
+}
+.upload-result-container .left button:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+
+.upload-result-container .right {
+  width: 75%;
+  text-transform: capitalize;
+}
+
+
+.link-container{
+    display: flex;
+}
+
+.link-container *{
+    margin: 7px;
+}
+
+.link-container p{
+    padding: 6px 0px;
+    width: 20%;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgb(107, 107, 107);
+}
+
+.link-container input{
+    width: 65%;
+    height: max-content;
+    padding: 12px 10px;
+    background-color: rgb(236, 236, 236);
+    border: 1px solid white;
+    outline: none;
+}
+
+.link-container button{
+    width: 15%;
+    height: max-content;
+    padding:12px 10px;
+    border-radius: 20px;
+    background-color: rgb(0, 110, 255);
+    color: white;
+    letter-spacing: 1px ;
+    border: 1px solid white;
+    outline: none;
+    transition: all 0.3s;
+}
+.link-container button:hover{
+    cursor: pointer;
+    color: rgb(0, 110, 255);
+    background-color: white;
+    border: 1px solid rgb(0, 110, 255);
+}
