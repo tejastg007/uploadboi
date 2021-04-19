@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <?php
 session_start();
 if(isset($_SESSION['id'])){
     header("location:./account");
 }
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -49,6 +49,11 @@ if(isset($_SESSION['id'])){
                 <?php
                 if (isset($_SESSION['login-error'])) {
                     echo "<p class='error'>" . $_SESSION['login-error'] . "</p>";
+                    session_unset();
+                    session_destroy();
+                }
+                if (isset($_SESSION['signup-success'])) {
+                    echo "<p class='error'>" . $_SESSION['signup-success'] . "</p>";
                     session_unset();
                     session_destroy();
                 }

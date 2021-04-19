@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if(isset($_SESSION['id'])){
+if (isset($_SESSION['id'])) {
     header("location:./account");
 }
 ?>
@@ -17,7 +17,7 @@ if(isset($_SESSION['id'])){
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <style>
-        .error{
+        .error {
             color: red;
             letter-spacing: 1px;
         }
@@ -26,8 +26,9 @@ if(isset($_SESSION['id'])){
 
 <body>
     <div class="container">
-    <?php
-            require "./includes/menu.php";
+
+        <?php
+        require "./includes/menu.php";
         ?>
 
 
@@ -45,11 +46,11 @@ if(isset($_SESSION['id'])){
                 <li></li>
             </ul>
 
-            <form action="./database/signupAction.php" method="POST" id="signup" onsubmit="return check()">
+            <form action="./database/signupAction.php" method="POST" id="signup" onsubmit="return validate()">
                 <h1>SignUp </h1>
                 <?php
-                if (isset($_SESSION['signup-error'])){
-                    echo "<p class='error'>".$_SESSION['signup-error']."</p>";
+                if (isset($_SESSION['signup-error'])) {
+                    echo "<p class='error'>" . $_SESSION['signup-error'] . "</p>";
                     session_unset();
                     session_destroy();
                 }
@@ -57,12 +58,8 @@ if(isset($_SESSION['id'])){
                 <p>username</p>
                 <input type="text" name="username" required autofocus>
                 <p>Email Id</p>
+                <p style="color:green">password will be sent to email</p>
                 <input type="email" name="email" required>
-                <p>Password</p>
-                <input type="password" name="password" required>
-                <p>Confirm Password</p>
-                <input type="password" name="cpassword" required>
-                <a href="login.php">Already registed? Login Here</a>
                 <input type="submit" name="submit">
             </form>
 
@@ -70,23 +67,21 @@ if(isset($_SESSION['id'])){
 
     </div>
 
-                <script>
-                    function check(){
-                    var pass= document.getElementsByName('password')[0];
-                    var cpass= document.getElementsByName('cpassword')[0];
-                    if(pass!==cpass){
-                     document.getElementsByName('cpassword')[0].value="";
-                     document.getElementsByName('cpassword')[0].style.fontFamily ="concert-one";
-                     document.getElementsByName('cpassword')[0].placeholder="confirm password doesnt match";
-                     document.getElementsByName('cpassword')[0].style.border="1px solid red";
-                        
-                        return false;
-                    }
-                    else{
-                        return true;
-                    }
-                    }
-                </script>
+    <script>
+        function validate() {
+            var email = document.getElementsByName('email')[0];
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (re.test(email.value) == false) {
+                email.value=""
+                email.style.border="1px solid red";
+                email.placeholder="enter valid email";
+                return false
+            } else {
+                return true
+            }
+
+        }
+    </script>
 
 </body>
 
