@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(0);
+$email=$_GET['m'];
 if(isset($_SESSION['id'])){
     header("location:./account");
 }
@@ -59,7 +61,7 @@ if(isset($_SESSION['id'])){
                 }
                 ?>
                 <p>email id</p>
-                <input type="email" name="email" required autofocus>
+                <input type="email" name="email" value="<?php echo $email ?>" required autofocus>
                 <p>Password</p>
                 <input type="password" name="password" required autofocus>
                 <a href="signup.php">Don't have account? create here!</a>

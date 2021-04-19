@@ -84,7 +84,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </tr>
                         <tr>
                             <td>new password</td>
-                            <td><input type="password" name="new-password" required></td>
+                            <td><input type="password" name="new-password" onkeyup="checkpass()" required></td>
                         </tr>
                         <tr>
                             <td>retype password</td>
