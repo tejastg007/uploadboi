@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <?php
-    session_start();
-    require "./database/dbconfig.php";
-    if(!isset($_SESSION['id'])){
-        header("location:../");
-    }
+require "./database/dbconfig.php";
+if (!isset($_SESSION['id'])) {
+    header("location:../");
+}
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,6 +27,7 @@
             <a href="./index.php">my account</a>
             <a href="./upload.php">upload files</a>
             <a href="./myfiles.php">my files</a>
+            <a href="./messages.php">messages</a>
             <a href="./contact.php">contact us</a>
             <a href="./logout.php">logout</a>
         </div>

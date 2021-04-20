@@ -1,18 +1,22 @@
-<!DOCTYPE html>
 <?php
-    require "./database/dbconfig.php";
+require "./database/dbconfig.php";
+$fileinfo = $_SERVER['PHP_SELF'];
+$pathinfo = pathinfo($fileinfo);
+$folder = $pathinfo['dirname'];
+$base = $protocol . "://" . $domain . $folder."/";
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="http://localhost:8000/pbl">
+    <base href="<?php echo "$base" ?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uploadBoi- download file</title>
-    <link rel="stylesheet" href="/pbl/css/f.css">
-    <link rel="stylesheet" href="/pbl/css/menu.css">
-    <link rel="stylesheet" href="/pbl/css/menu2.css">
+    <link rel="stylesheet" href="<?php echo $base ?>/css/f.css">
+    <link rel="stylesheet" href="<?php echo $base ?>/css/menu.css">
+    <link rel="stylesheet" href="<?php echo $base ?>/css/menu2.css">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap" rel="stylesheet">
     <style>
@@ -38,9 +42,9 @@
     } else {
         include "./includes/menu.php";
     }
-    
+
     if (empty($_GET['id']) && empty($_GET['d'])) {
-        header("location:../");
+        header("location:http://localhost:8000/pbl");
     } else {
         $code = $_GET['id'];
 
@@ -70,7 +74,7 @@
                         $filelink = "/files/" . $row['code'] . "." . $row['extension'];
                         $root = $_SERVER['DOCUMENT_ROOT'];
                         $fl = $root . $folder . $filelink;
-                        if ($row['status'] == 'public' || ($row['status']=='private' && $user==$row['user'])) {
+                        if ($row['status'] == 'public' || ($row['status'] == 'private' && $user == $row['user'])) {
                     ?>
                             <div class="file-info">
                                 <div class="field">
@@ -115,6 +119,6 @@
 
 </html>
 <?php
-        } 
+        }
     }
 ?>

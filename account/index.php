@@ -6,14 +6,14 @@ $query = "select * from userdata where id='$id'";
 $result = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_assoc($result)) {
     $username = $row['username'];
-        $email = $row['email'];
+    $email = $row['email'];
     $joindate = $row['joindate'];
 }
 ?>
 
 
 <div class="container">
-    <div id="toast"><?php echo $message."!!"; ?></div>
+    <div id="toast"><?php echo $message . "!!"; ?></div>
     <div class="my-account">
 
         <div class="left">
@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         while ($row = mysqli_fetch_assoc($result)) {
             $spaceused = $row['sum(size)'];
-            $spaceused =round($spaceused,2);
+            $spaceused = round($spaceused, 2);
             $totaldownloads = $row['sum(hits)'];
         }
 
@@ -84,7 +84,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </tr>
                         <tr>
                             <td>new password</td>
-                            <td><input type="password" name="new-password" onkeyup="checkpass()" required></td>
+                            <td><input type="password" name="new-password" required></td>
                         </tr>
                         <tr>
                             <td>retype password</td>
@@ -129,8 +129,19 @@ while ($row = mysqli_fetch_assoc($result)) {
         }, 3000);
     }
 
+
     function updatepass() {
         var pass = document.getElementsByName('new-password')[0].value;
+        if (pass.length < 6) {
+            var x = document.getElementById("toast");
+            x.innerHTML="password must be atleast of 6 character";
+            x.className = "show";
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+            return false;
+        }
+
         var cpass = document.getElementsByName('confirm-password')[0].value;
         if (pass != cpass) {
             document.getElementsByName('confirm-password')[0].value = "";

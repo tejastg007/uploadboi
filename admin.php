@@ -5,8 +5,6 @@ $email=$_GET['m'];
 if(isset($_SESSION['id'])){
     header("location:./account");
 }
-require "./database/dbconfig.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
