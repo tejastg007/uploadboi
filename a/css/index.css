@@ -1,0 +1,90 @@
+.page{
+    position: relative;
+    width: 100%;
+    height: max-content;
+    /* border: 1px solid black; */
+}
+
+.cards-container{
+    position: relative;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    width: 30%;
+    max-width: 300px;
+    height: 120px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px -3px rgb(110, 110, 110);
+}
+
+.card-left{
+    flex: 3;
+}
+
+.card-left p{
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    /* margin: 5px 0px; */
+}
+
+.card-right{
+    flex:1
+}
+
+.card-right i{
+    font-size: 30px;
+    color:rgba(194, 193, 193, 0.658)
+}
+
+.card:nth-child(1){
+    border-left: 6px solid red;
+}
+.card:nth-child(1) p{
+    color: red;
+}
+
+.card:nth-child(2){
+    border-left: 6px solid rgb(6, 223, 6);
+}
+.card:nth-child(2) p{
+    color: rgb(6, 223, 6);
+}
+
+.card:nth-child(3){
+    border-left: 6px solid rgb(6, 82, 223);
+}
+.card:nth-child(3) p{
+    color: rgb(6, 82, 223);
+}
+
+.card:nth-child(4){
+    border-left: 6px solid rgb(223, 6, 212);
+}
+.card:nth-child(4) p{
+    color: rgb(223, 6, 212);
+}
+
+.card:nth-child(5){
+    border-left: 6px solid rgb(1, 165, 151);
+}
+.card:nth-child(5) p{
+    color: rgb(1, 165, 151);
+}
+
+.card:nth-child(6){
+    border-left: 6px solid rgb(252, 172, 0);
+}
+.card:nth-child(6) p{
+    color: rgb(252, 172, 0);
+}
+

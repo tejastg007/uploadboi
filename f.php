@@ -44,7 +44,7 @@ $base = $protocol . "://" . $domain . $folder."/";
     }
 
     if (empty($_GET['id']) && empty($_GET['d'])) {
-        header("location:http://localhost:8000/pbl");
+        header("location:$base");
     } else {
         $code = $_GET['id'];
 

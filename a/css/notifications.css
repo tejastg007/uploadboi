@@ -1,0 +1,36 @@
+.notification-container{
+    position: relative;
+    max-width: 500px;
+    height: max-content;
+    margin: 30px auto;
+    border: 1px solid  rgb(119, 119, 119);
+    overflow: hidden;
+    border-radius: 10px;
+    letter-spacing: 1px;
+}
+
+.notification-title{
+    padding: 15px;
+    background-color: rgb(1, 54, 153);
+    color: white;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.notification-holder{
+    width: 100%;
+    height: max-content;
+    padding: 20px;
+    height: 440px;
+    overflow: auto;
+}
+
+.notification{
+    border-bottom: 1px solid rgb(184, 184, 184);
+    padding: 10px;
+    font-size: 14px;
+}
+
+.notification-date{
+    text-align: right;
+}

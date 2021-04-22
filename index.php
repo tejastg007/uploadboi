@@ -1,10 +1,8 @@
-<!DOCTYPE html>
 <?php
-session_start();
+require "./database/dbconfig.php";
 if (isset($_SESSION['id'])) {
     header("location:./account");
 } else {
-    require "./database/dbconfig.php";
     if (isset($_POST['submit'])) {
         $array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         do {
@@ -27,7 +25,7 @@ if (isset($_SESSION['id'])) {
         }
         $filename = $pathinfo['basename'];
         $extension = $pathinfo['extension'];
-
+        $extension = strtolower($extension);
         $dir = "./files/";
         $newfilename = $code . "." . $extension;
         $uploaddate = $currentDate;
@@ -40,12 +38,22 @@ if (isset($_SESSION['id'])) {
         $filelink = $protocol . "://" . $domain . $folder . "/f/$code";
         if (move_uploaded_file($file['tmp_name'], $dir . $newfilename)) {
             mysqli_query($conn, $query);
+            if (!empty($tomail)) {
+                $filelink=$protocol."://".$domain."/pbl/f/".$code;
+                $signup=$protocol."://".$domain."/pbl/signup";
+                $to = $tomail;
+                $subject = "Hello, you got something!!! ";
+                $header = "Content-Type:text/html; charset=ISO-8859-1\r\n";
+                $msg = "<p>Hello, greetings from uploadBoi!<br>Here is your file - <a href='$filelink'>Download</a><br><br>Signup on uploadBoi for more features!<br><a href='$signup'> <b>SIGNUP</b></a></p>";
+                mail($to, $subject, $msg, $header);
+            }
             $_SESSION['file-link'] = $filelink;
-            
         }
     }
 }
 ?>
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -96,7 +104,7 @@ if (isset($_SESSION['id'])) {
                     <img src="./media/uploadImage.png" alt="">
 
                     <input onchange="fun1(this.files[0])" type="file" id="file1" name="file1" required>
-                    <label for="file1" id="fileLabel">choose file</label>
+                    <label for="file1" id="fileLabel">choose file <?php echo "(max size $maxfilesize MB )" ?></label>
 
                     <input id="email" type="email" name="email" placeholder="enter email id (optional)">
 
@@ -128,17 +136,28 @@ if (isset($_SESSION['id'])) {
     <script>
         function fun1(val) {
             var filesize = val.size;
-            var filename = val.name;
-            if (filename.length > 25) {
-                filename = filename.slice(0, 25) + ("...");
-            }
             filesize = (val.size / (1024 * 1024)).toFixed(2);
             if (filesize < 0.1) {
                 filesize = 0.1;
             }
-            document.getElementById("fileLabel").innerHTML = filename + " (" + filesize + "MB )";
-            if (val != "") {
-                document.getElementById("email").style.display = "inline-block"
+            if (filesize > <?php echo $maxfilesize ?>) {
+                var x = document.getElementById("copymsg");
+                x.className = "copymsg";
+                x.innerHTML = "max upload size is <?php echo $maxfilesize ?> MB";
+                setTimeout(function() {
+                    x.className = x.className.replace("show", "");
+                }, 3000);
+            } else {
+
+                var filename = val.name;
+                if (filename.length > 25) {
+                    filename = filename.slice(0, 25) + ("...");
+                }
+
+                document.getElementById("fileLabel").innerHTML = filename + " (" + filesize + "MB )";
+                if (val != "") {
+                    document.getElementById("email").style.display = "inline-block"
+                }
             }
         }
 
@@ -177,6 +196,7 @@ if (isset($_SESSION['id'])) {
             document.execCommand("copy");
 
             var x = document.getElementById("copymsg");
+
             x.className = "copymsg";
             setTimeout(function() {
                 x.className = x.className.replace("copymsg", "");

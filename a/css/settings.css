@@ -1,0 +1,37 @@
+.settings{
+    padding: 30px 30px;
+}
+
+.settings-form{
+    width: 500px;
+    padding: 10px 40px;
+    margin: auto;
+    border:1px solid rgb(172, 172, 172); 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+.settings-form h3{
+    padding: 30px 0px;
+    text-align: center;
+}
+
+.settings-form p{
+    font-size: 15px;
+}
+
+.settings-form input{
+    border: 1px solid rgb(143, 143, 143);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0px;
+}
+
+.settings-form input[type="submit"]{
+    margin: 30px 0px;
+}
+
+

@@ -1,0 +1,237 @@
+.search-form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0px;
+}
+
+.search-name {
+  border: 1px solid rgb(5, 176, 255);
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+}
+
+input[type="submit"] {
+  background-color: rgb(5, 176, 255);
+  color: white;
+  transition: all 0.3s;
+}
+input[type="submit"]:hover {
+  color: white;
+  background-color: rgb(90, 247, 0);
+  cursor: pointer;
+}
+
+.table-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin-top: 20px;
+  /* overflow: scroll; */
+}
+
+.table-container::-webkit-scrollbar {
+  display: none;
+}
+
+.user-table {
+  margin: 0px auto;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+.user-table th:nth-child(1) {
+  width: 5%;
+}
+.user-table th:nth-child(2) {
+  width: 20%;
+}
+.user-table th:nth-child(3) {
+  width: 40%;
+}
+.user-table th:nth-child(4) {
+  width: 15%;
+}
+.user-table th:nth-child(5){
+  width: 10%;
+}
+.user-table th:nth-child(6){
+width: 10%;
+}
+
+.user-table tr {
+  border-bottom: 1px solid rgb(177, 174, 174);
+}
+
+.user-table th {
+  position: sticky;
+  top: 0px;
+  text-transform: capitalize;
+}
+
+.user-table th,
+.user-table td {
+  padding: 7px 10px;
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.user-table button {
+  outline: none;
+  border: none;
+  background-color: rgb(140, 0, 255);
+  color: white;
+  padding: 5px 13px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+.user-table td:last-child{
+  text-align: center;
+}
+
+/*! //////userinfo /////////*/
+
+.toggle-container {
+  font-size: 0px;
+  padding-top: 10px;
+}
+
+.tab {
+  padding: 10px 15px;
+  outline: none;
+  border: none;
+  letter-spacing: 1px;
+  background-color: rgb(219, 219, 219);
+}
+
+.tab:hover {
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: indigo;
+  color: white;
+}
+
+.user-table-container {
+  margin-top: 0px;
+}
+
+.tabcontent {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  margin-top: 20px;
+  overflow: scroll;
+}
+
+.tabcontent::-webkit-scrollbar {
+  display: none;
+}
+
+.userdetails {
+  margin: 0px auto;
+  border-collapse: collapse;
+  border-radius: 14px;
+  box-shadow: 0px 0px 10px -2px black;
+}
+
+.userinfo-table {
+  background: linear-gradient(to right, rgb(2, 240, 240), rgb(4, 217, 255));
+}
+
+.userinfo-table td {
+  font-size: 14px;
+  padding: 8px 20px;
+}
+
+.userinfo-table td:first-child {
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.userinfo-table td:last-child {
+  letter-spacing: 1px;
+  color: white;
+}
+
+.userfiles-table {
+  width: 90%;
+  margin: 0px auto;
+  text-align: left;
+}
+
+.userfiles-table tr {
+  border-top: 1px solid rgb(151, 151, 151);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.userfiles-table td,
+.userfiles-table th {
+  padding: 8px 6px;
+}
+
+.userfiles-table th {
+  position: sticky;
+  top: 0px;
+  background-color: rgb(34, 0, 88);
+  color: white;
+}
+
+.userfiles-table th:nth-child(1) {
+  width: 5%;
+}
+.userfiles-table th:nth-child(2) {
+  width: 40%;
+}
+.userfiles-table th:nth-child(3) {
+  width: 10%;
+}
+.userfiles-table th:nth-child(4) {
+  width: 10%;
+}
+.userfiles-table th:nth-child(5) {
+  width: 5%;
+}
+.userfiles-table th:nth-child(6) {
+  width: 7%;
+}
+.userfiles-table th:nth-child(7) {
+  width: 10%;
+}
+.userfiles-table th:nth-child(8) {
+  width: 10%;
+}
+
+.userfiles-table td:nth-child(6):hover,
+.userfiles-table td:nth-child(7):hover,
+.userfiles-table td:nth-child(8):hover {
+  cursor: pointer;
+}
+
+.userfiles-table th:nth-child(6),
+.userfiles-table th:nth-child(7),
+.userfiles-table th:nth-child(8){
+  text-align: center;
+}
+
+.userfiles-table td:nth-child(6),
+.userfiles-table td:nth-child(7),
+.userfiles-table td:nth-child(8){
+  text-align: center;
+} 
+
+.userfiles-table td i{
+  font-size: 15px;
+}
+

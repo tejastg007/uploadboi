@@ -1,15 +1,19 @@
 <?php
-session_start();
-error_reporting(0);
-$email=$_GET['m'];
-if(isset($_SESSION['id'])){
-    header("location:./account");
+require "./database/dbconfig.php";
+if(isset($_SESSION['admin'])){
+    header("location:./a");
 }
+
+$fileinfo = $_SERVER['PHP_SELF'];
+$pathinfo = pathinfo($fileinfo);
+$folder = $pathinfo['dirname'];
+$base = $protocol . "://" . $domain . $folder . "/";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <base href="<?php echo "$base" ?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +23,7 @@ if(isset($_SESSION['id'])){
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <style>
-        .error{
+        .error {
             color: red;
             letter-spacing: 1px;
         }
@@ -28,8 +32,8 @@ if(isset($_SESSION['id'])){
 
 <body>
     <div class="container">
-    <?php
-            require "./includes/menu.php";
+        <?php
+        require "./includes/menu.php";
         ?>
 
         <div class="first">
@@ -46,16 +50,11 @@ if(isset($_SESSION['id'])){
                 <li></li>
             </ul>
 
-            <form action="./database/loginAction.php" method="POST">
-                <h1>login </h1>
+            <form action="./database/adminlogin.php" method="POST">
+                <h1>admin </h1>
                 <?php
                 if (isset($_SESSION['login-error'])) {
                     echo "<p class='error'>" . $_SESSION['login-error'] . "</p>";
-                    session_unset();
-                    session_destroy();
-                }
-                if (isset($_SESSION['signup-success'])) {
-                    echo "<p class='error'>" . $_SESSION['signup-success'] . "</p>";
                     session_unset();
                     session_destroy();
                 }
@@ -64,13 +63,9 @@ if(isset($_SESSION['id'])){
                 <input type="email" name="email" value="<?php echo $email ?>" required autofocus>
                 <p>Password</p>
                 <input type="password" name="password" required autofocus>
-                <a href="signup.php">Don't have account? create here!</a>
                 <input type="submit" name="submit">
             </form>
 
         </div>
-
     </div>
 </body>
-
-</html>

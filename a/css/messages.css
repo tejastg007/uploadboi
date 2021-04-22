@@ -1,0 +1,60 @@
+.messages{
+    display: flex;
+    justify-content: space-around;
+    letter-spacing: 1px;
+}
+
+.msg-box{
+    flex: 1;
+    max-width: 500px;
+    height: max-content;
+    border: 1px solid  rgb(119, 119, 119);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.messages .title{
+    padding: 10px;
+    background-color: rgb(1, 54, 153);
+    color: white;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.msg-box p:not(.title){
+    font-size: 14px;
+    margin: 10px 0px;
+}
+
+.send-message form,.query-container{
+    width: 100%;
+    height: max-content;
+    padding: 20px;
+}
+
+.send-message form input,.send-message form textarea{
+    width: 100%;
+    padding: 10px;
+    border:1px solid gray;
+    outline:none;
+    letter-spacing: 1px;
+}
+.send-message form input[type="submit"]{
+    margin: 20px 0px;
+}
+
+.query-container{
+    height: 440px;
+    overflow: auto;
+}
+
+.query{
+    border-bottom: 1px solid rgb(184, 184, 184);
+}
+.query-info{
+    text-align: right;
+}
+.query-info a{
+    color: blue;
+    text-decoration: underline;
+}

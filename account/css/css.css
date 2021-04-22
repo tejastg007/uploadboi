@@ -4,6 +4,8 @@
 @import "uploadresult.css";
 @import "myfiles.css";
 @import "f.css";
+@import "messages.css";
+@import "contact.css";
 * {
   padding: 0px;
   margin: 0px;

@@ -26,8 +26,8 @@ if (!isset($_POST['submit'])) {
     $file = $_FILES['file'];
     $pathinfo = pathinfo($file['name']);
     $filesize = round((($file['size']) / (1024 * 1024)), 2);
-    if($filesize<0.1){
-        $filesize=0.1;
+    if ($filesize < 0.1) {
+        $filesize = 0.1;
     }
     $filename = $pathinfo['basename'];
     $extension = $pathinfo['extension'];
@@ -40,10 +40,17 @@ if (!isset($_POST['submit'])) {
     $query = "insert into filedata(code,filename,extension,size,uploaddate,expirydate,hits,tomail,status,user) values('$code','$filename','$extension','$filesize','$uploaddate','$expirydate','$hits','$tomail','$status','$username')";
 
 
-    if(move_uploaded_file($file['tmp_name'],$dir.$newfilename)){
-        mysqli_query($conn,$query);
+    if (move_uploaded_file($file['tmp_name'], $dir . $newfilename)) {
+        mysqli_query($conn, $query);
+        if (!empty($tomail)) {
+            $filelink=$protocol."://".$domain."/pbl/f/".$code;
+            $signup=$protocol."://".$domain."/pbl/signup";
+            $to = $tomail;
+            $subject = "Hello, you got something!!! ";
+            $header = "Content-Type:text/html; charset=ISO-8859-1\r\n";
+            $msg = "<p>Hello, greetings from uploadBoi!<br>Here is your file - <a href='$filelink'>Download</a><br><br>Signup on uploadBoi for more features!<br><a href='$signup'> <b>SIGNUP</b></a></p>";
+            mail($to, $subject, $msg, $header);
+        }
         header("location:../uploadresult.php?code=$code");
     }
-
-
 }

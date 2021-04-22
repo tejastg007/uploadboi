@@ -1,0 +1,90 @@
+.button-container {
+  font-size: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.files-container {
+  margin-top: 10px;
+}
+
+.files-table{
+    width: 95%;
+    margin: 0px auto;
+    border-collapse: collapse;
+    text-align: left;
+    border-radius: 14px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    box-shadow: 0px 0px 15px -2px black;
+}
+
+.files-table td, .files-table th{
+    padding: 10px 10px;
+    /* border: 1px solid black; */
+}
+
+.files-table td{
+    border-top: 1px solid rgb(219, 219, 219);
+    word-break:break-all
+}
+
+.files-table th{
+    background-color: rgb(25, 4, 100);
+    color: white;
+    position: sticky;
+    top:0px
+}
+
+.files-table .action{
+    text-align: center;
+}
+
+/*! ///////////common table css complted /////*/
+
+.logged-files th:nth-child(1){
+    width: 5%;
+}
+.logged-files th:nth-child(2){
+width: 12%;
+}
+.logged-files th:nth-child(3){
+width: 40%;
+}
+.logged-files th:nth-child(4){
+width: 8%;
+}
+.logged-files th:nth-child(5){
+width: 10%;
+}
+.logged-files th:nth-child(6){
+width: 7%;
+}
+.logged-files th:nth-child(7){
+width: 10%;
+}
+.logged-files th:nth-child(8){
+    width: 10%;
+}
+
+.non-logged-files th:nth-child(1){
+    width: 5%;
+}
+.non-logged-files th:nth-child(2){
+    width: 45%;
+}
+.non-logged-files th:nth-child(3){
+    width: 10%;
+}
+.non-logged-files th:nth-child(4){
+    width: 10%;
+}
+.non-logged-files th:nth-child(5){
+    width: 10%;
+}
+.non-logged-files th:nth-child(6){
+    width: 10%;
+}
+.non-logged-files th:nth-child(7){
+    width: 10%;
+}

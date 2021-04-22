@@ -5,6 +5,13 @@ if (!isset($_POST['submit'])) {
 } else {
     $username=mysqli_real_escape_string($conn,$_POST['username']);
     $email=mysqli_real_escape_string($conn,$_POST['email']);
+    $email=strtolower($email);
+    $blacklistcheck=mysqli_num_rows(mysqli_query($conn,"select * from blacklist where mail='$email'"));
+    if($blacklistcheck>0){
+        $_SESSION['signup-error']="your email is blacklisted!";
+        header("location:../signup.php");
+        exit();
+    }
     $checkusername = "select * from userdata where username='$username'";
     $checkusernamer = mysqli_query($conn, $checkusername);
     if (mysqli_num_rows($checkusernamer) > 0) {

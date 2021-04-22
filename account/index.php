@@ -57,7 +57,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </tr>
                     <tr>
                         <td>max upload size</td>
-                        <td>1024 MB</td>
+                        <td><?php echo $maxfilesize ?> MB</td>
                     </tr>
                     <tr>
                         <td>total downloads</td>

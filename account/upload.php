@@ -1,15 +1,18 @@
 <?php
 include "./includes/header.php";
+
 ?>
 
 
 <div class="container">
+    <div id="toast"><?php echo $message . "!!"; ?></div>
+
     <div class="upload">
         <div class="upload-title">upload file</div>
 
         <form id="uploadform" action="./database/uploadfile.php" method="post" enctype="multipart/form-data">
             <input type="file" name="file" id="file" onchange="fun1(this.files[0])">
-            <label id="filelabel" for="file" class="fas fa-file-upload"></label>
+            <label title="max upload size is <?php echo $maxfilesize." MB" ?>" id="filelabel" for="file" class="fas fa-file-upload"></label>
 
             <div class="after-upload">
 
@@ -17,7 +20,9 @@ include "./includes/header.php";
                 <button class="far fa-window-close cancel" type="button" onclick="window.open('./upload.php','_self')"></button>
 
                 <progress id="pbar" min="0" max="100" value="0"></progress>
-                
+
+                <div id="warning"></div>
+
                 <div id="optionspanel" class="optionspanel">
                     <select name="status" id="status">
                         <option value="public" selected>public</option>
@@ -29,7 +34,7 @@ include "./includes/header.php";
                     <button id="togglebutton" type="button" class="options" onclick="optionpanel('optionspanel')">options</button>
 
                     <input class="options" type="submit" name="submit" value="upload">
-                    
+
                 </div>
             </div>
         </form>
@@ -41,18 +46,28 @@ include "./includes/header.php";
             /////////set the name of file to the label/////
             function fun1(val) {
                 var filesize = val.size;
-                var filename = val.name;
-                if (filename.length > 50) {
-                    filename = filename.slice(0, 50) + ("...");
-                }
                 filesize = (val.size / (1024 * 1024)).toFixed(2);
-                if(filesize<0.1){
-                    filesize=0.1;
+                if (filesize < 0.1) {
+                    filesize = 0.1;
                 }
-                document.getElementById("filenamelabel").innerHTML = filename + " (" + filesize + "MB )";
-                if (val != "") {
-                    document.querySelector(".after-upload").style.display = "block";
-                    document.getElementById("filelabel").style.display = "none";
+                if (filesize > <?php echo $maxfilesize ?>) {
+                    var x = document.getElementById("toast");
+                    x.className = "show";
+                    x.innerHTML = "max upload size is <?php echo $maxfilesize ?> MB";
+                    setTimeout(function() {
+                        x.className = x.className.replace("show", "");
+                    }, 3000);
+                } else {
+                    var filename = val.name;
+                    if (filename.length > 50) {
+                        filename = filename.slice(0, 50) + ("...");
+                    }
+
+                    document.getElementById("filenamelabel").innerHTML = filename + " (" + filesize + "MB )";
+                    if (val != "") {
+                        document.querySelector(".after-upload").style.display = "block";
+                        document.getElementById("filelabel").style.display = "none";
+                    }
                 }
             }
             /////////set the name of file to the label ends/////

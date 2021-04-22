@@ -18,11 +18,13 @@ if (!empty($_GET['d'])) {
     $filelink = "./files/" . $row['code'] . "." . $row['extension'];
     $updatequery = "update filedata set hits='$hits' where code='$code'";
     if (file_exists($filelink)) {
+        mysqli_query($conn,$updatequery);
         header("Cache-Control:public");
         header("Content-Description: File Transfer");
-        header("Content-Disposition:attachment; filename=$filename");
+        header("Content-Disposition:inline; filename=$filename");
         header("Content-Type:application/zip"); 
         header("Content-transfer-encoding:binary");
+      
         readfile($filelink);
         exit();
     }

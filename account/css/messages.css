@@ -1,0 +1,45 @@
+.messages{
+    /* border: 1px solid black; */
+    padding: 10px 20px;
+    font-family: "noto sans jp";
+    letter-spacing: 1px;
+}
+
+.message-box{
+    width: 600px;
+    height: max-content;
+    margin: 30px auto;
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.messages-title{
+    background-color: rgb(34, 159, 241);
+    color: white;
+    padding: 20px ;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.message-holder{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    padding:10px;
+    overflow: auto;
+}
+
+.message-container{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+.message-container p{
+    font-size: 14px;
+}
+.message-container p:last-child{
+text-align: right;
+}
