@@ -51,7 +51,7 @@ if (isset($_SESSION['id'])) {
         }
     }
 }
-?>
+?>  
 <!DOCTYPE html>
 
 <html lang="en">
@@ -76,7 +76,7 @@ if (isset($_SESSION['id'])) {
         ?>
 
         <div class="first">
-            <span id="copymsg">link copied!</span>
+            <span id="copymsg"></span>
             <ul class="circles">
                 <li></li>
                 <li></li>

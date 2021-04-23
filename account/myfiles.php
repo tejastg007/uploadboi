@@ -68,7 +68,7 @@ $root = rtrim($folder, '/account');
                             <td><?php echo $row['hits'] ?></td>
                             <td onclick="window.open('<?php echo $link; ?>')"><i class="fas fa-download"></i></td>
                             <td onclick="sharecopy('<?php echo $link ?>')"><i class="fas fa-share"></i></td>
-                            <td onclick="window.open('./database/deletefile.php?id=<?php echo $row['id'] ?>','_self')"><i class="fas fa-trash-alt"></i></td>
+                            <td onclick="delet(<?php echo $row['id'] ?>)"><i class="fas fa-trash-alt"></i></td>
                         </tr>
 
                     <?php } ?>
@@ -77,6 +77,13 @@ $root = rtrim($folder, '/account');
             </table>
         </div>
         <script>
+
+                        function delet(id){
+                            if(window.confirm('Are you confirm to delete this file?')){
+                                window.location='./database/deletefile.php?id='+id;
+                            }
+                        }
+
             function sharecopy(link) {
                 var link = link;
                 var sharecopy = document.getElementById('sharecopy');

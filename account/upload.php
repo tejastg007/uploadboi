@@ -76,12 +76,14 @@ include "./includes/header.php";
             ///////progresss bar animation //////////////
             const form = document.getElementById("uploadform");
 
+            //! form validation
             form.addEventListener("submit", checksubmit)
 
             function checksubmit(e) {
                 // document.querySelector(".cancel").style.display="none"
                 document.getElementById("pbar").style.display = "inline-block"
-
+                
+                //! ajax code
                 var file = document.getElementById("file").files[0];
                 const xhr = new XMLHttpRequest();
                 xhr.open("POST", '');

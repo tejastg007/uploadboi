@@ -7,11 +7,15 @@ if (!isset($_POST['submit'])) {
     $email=mysqli_real_escape_string($conn,$_POST['email']);
     $email=strtolower($email);
     $blacklistcheck=mysqli_num_rows(mysqli_query($conn,"select * from blacklist where mail='$email'"));
+    
+    //! check whethe email is in blacklist or not
     if($blacklistcheck>0){
         $_SESSION['signup-error']="your email is blacklisted!";
         header("location:../signup.php");
         exit();
     }
+
+    //!check username is already exists
     $checkusername = "select * from userdata where username='$username'";
     $checkusernamer = mysqli_query($conn, $checkusername);
     if (mysqli_num_rows($checkusernamer) > 0) {
@@ -20,6 +24,7 @@ if (!isset($_POST['submit'])) {
         exit();
     }
 
+    //! check email already exist
     $checkemail = "select * from userdata where email='$email'";
     $checkemailr = mysqli_query($conn, $checkemail);
 
@@ -29,8 +34,8 @@ if (!isset($_POST['submit'])) {
         exit();
     }
 
-    
-    $password = substr(md5(rand()), 0, 7);;
+    //! generate random password 
+    $password = substr(md5(rand()), 0, 7);
     $query = "insert into userdata(username,email,password,joindate) values('$username','$email','$password','$currentDate')";
     if (mysqli_query($conn, $query)) {
         $to = $email;

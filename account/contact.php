@@ -1,21 +1,22 @@
 <?php
 include "./includes/header.php";
 $id=$_SESSION['id'];
-$mail=mysqli_fetch_assoc(mysqli_query($conn,"select * from userdata where id='$id'"));
-$mail=$mail['email'];
-$username=$mail['username'];
-if(isset($_POST['submit'])){
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $message=$_POST['message'];
-    mysqli_query($conn,"insert into messages(username,name,message,email,date,status) values ('$username','$name','$message','$email','$currentDate','unsolved')");
+$row=mysqli_fetch_assoc(mysqli_query($conn,"select * from userdata where id='$id'"));
+$mail=$row['email'];
+$username=$row['username'];
+echo $username;
+// if(isset($_POST['submit'])){
+//     $name=$_POST['name'];
+//     $email=$_POST['email'];
+//     $message=$_POST['message'];
+//     mysqli_query($conn,"insert into messages(username,name,message,email,date,status) values ('$username','$name','$message','$email','$currentDate','unsolved')");
 
-    $to = $email;
-    $subject = "Hello, $name, greetings from uploadboi!!! ";
-    $header = "Content-Type:text/html; charset=ISO-8859-1\r\n";
-    $msg = "<p>Hello, we have received your query. The team will look into it and solve it as soon as possible!<br>Till then, enjoy our free services!<br><b>Best regards,<br>Admin, upoloadBoi</b></p>";
-    mail($to, $subject, $msg, $header);
-}
+//     $to = $email;
+//     $subject = "Hello, $name, greetings from uploadboi!!! ";
+//     $header = "Content-Type:text/html; charset=ISO-8859-1\r\n";
+//     $msg = "<p>Hello, we have received your query. The team will look into it and solve it as soon as possible!<br>Till then, enjoy our free services!<br><b>Best regards,<br>Admin, upoloadBoi</b></p>";
+//     mail($to, $subject, $msg, $header);
+// }
 ?>
 
 
@@ -26,11 +27,11 @@ if(isset($_POST['submit'])){
             <h3>Contact </h3>
             <form action="" class="contact-form" method="post">
                 <p>Name</p>
-                <input type="text" name="name"> 
+                <input type="text" name="name" required> 
                 <p>Email</p>
                 <input type="text" name="email" value="<?php echo $mail?>" readonly >
                 <p>Message</p>
-                <textarea name="message" rows="5" onkeydown=" validate()"></textarea>
+                <textarea name="message" rows="5" onkeydown=" validate()" required></textarea>
                 <p id="warning">max limit is 200 words</p>
                 <input type="submit" name="submit" >
             </form>

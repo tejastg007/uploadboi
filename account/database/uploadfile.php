@@ -23,6 +23,8 @@ if (!isset($_POST['submit'])) {
     } while (mysqli_num_rows($coderesult) > 0);
     $tomail = mysqli_real_escape_string($conn, $_POST['to-mail']);
     $status = mysqli_real_escape_string($conn, $_POST['status']);
+   
+    //! get file info
     $file = $_FILES['file'];
     $pathinfo = pathinfo($file['name']);
     $filesize = round((($file['size']) / (1024 * 1024)), 2);
